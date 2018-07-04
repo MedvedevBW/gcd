@@ -1,12 +1,12 @@
 package com.bwsw.test.gcd.entities;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Min;
 
-public class GcdArgumentsApi {
+public final class GcdArgumentsApi {
+    private final String errorMessage = "Please insert positive number";
+    @Min(value=1, message = errorMessage)
     long first;
+    @Min(value=1, message = errorMessage)
     long second;
 
     public GcdArgumentsApi() {

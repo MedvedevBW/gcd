@@ -5,7 +5,7 @@
 
 	<groupId>com.bwsw.test</groupId>
 	<artifactId>gcd</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0</version>
 	<packaging>jar</packaging>
 
 	<name>gcd</name>
@@ -29,6 +29,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -39,10 +40,29 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8.5</version>
 		</dependency>
 	</dependencies>
 
