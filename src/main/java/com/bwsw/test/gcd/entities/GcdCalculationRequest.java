@@ -24,4 +24,21 @@ public final class GcdCalculationRequest implements Serializable {
     public long getFirst() {
         return first;
     }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setSecond(long second) {
+        this.second = second;
+    }
+
+    public void setFirst(long first) {
+        this.first = first;
+    }
+
+    public String toString() {
+        return "GcdCalculationRequest( id: " + id +
+                ", first: " + first + ", second: " + second + ")";
+    }
 }

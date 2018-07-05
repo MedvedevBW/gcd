@@ -1,9 +1,13 @@
 package com.bwsw.test.gcd.entities;
 
-public final class GcdCalculationResponse {
+import java.io.Serializable;
+
+public final class GcdCalculationResponse implements Serializable {
     private long requestId;
     private long result;
     private String errorMessage;
+
+    public GcdCalculationResponse() {}
 
     public GcdCalculationResponse(long requestId, long result, String errorMessage) {
         this.requestId = requestId;

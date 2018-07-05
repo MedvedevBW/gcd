@@ -1,22 +1,15 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/test_liquibase
-    username: ${USER_NAME}
+    url: jdbc:postgresql://127.0.0.1:5432/test
+    username: test_user
     password: test_user
   jpa:
     generate-ddl: true
   rabbitmq:
-    host: localhost
+    host: 127.0.0.1
     port: 5672
     username: guest
     password: guest
-    listener:
-      type: simple
-      simple:
-        max-concurrency: 3
-        concurrency: 2
-        retry:
-          initial-interval: 5000
 
 app:
   rabbitmq:
