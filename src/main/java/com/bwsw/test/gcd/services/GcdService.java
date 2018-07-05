@@ -14,6 +14,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GcdService {
@@ -38,11 +39,9 @@ public class GcdService {
     }
 
 
-    public GcdResult get(Long id) {
+    public Optional<GcdResult> get(Long id) {
         logger.info("get GCD calculating result by id: {}", id);
-        return gcdResultRepository.findById(id).orElse(
-                new GcdResult(id, "Entity with specified id does not exist")
-        );
+        return gcdResultRepository.findById(id);
     }
 
     public Long calculate(Long first, Long second) {

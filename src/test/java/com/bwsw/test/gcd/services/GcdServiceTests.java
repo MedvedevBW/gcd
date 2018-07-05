@@ -3,7 +3,8 @@ package com.bwsw.test.gcd.services;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNull;
+import static org.testng.Assert.assertTrue;
+
 import com.bwsw.test.gcd.configuration.AppConfig;
 import com.bwsw.test.gcd.entities.GcdArgumentsBase;
 import com.bwsw.test.gcd.entities.GcdCalculationRequest;
@@ -55,22 +56,19 @@ public class GcdServiceTests extends AbstractTestNGSpringContextTests {
 
         when(gcdResultRepositoryMock.findById(resultId)).thenReturn(Optional.of(expectedResult));
 
-        assertEquals(gcdService.get(resultId), expectedResult);
+        assertEquals(gcdService.get(resultId), Optional.of(expectedResult));
     }
 
     @Test
-    public void get_will_return_result_with_error() {
+    public void get_will_return_result_with_empty_option() {
         Long resultId = 1L;
         String errorMessage = "Entity with specified id does not exist";
         GcdResult expectedResult = new GcdResult(resultId, errorMessage);
 
         when(gcdResultRepositoryMock.findById(resultId)).thenReturn(Optional.empty());
-        GcdResult actualResult = gcdService.get(resultId);
+        Optional<GcdResult> actualResult = gcdService.get(resultId);
 
-        assertEquals(actualResult.getId(), expectedResult.getId());
-        assertEquals(actualResult.getStatus(), expectedResult.getStatus());
-        assertEquals(actualResult.getError(), expectedResult.getError());
-        assertNull(actualResult.getResult());
+        assertTrue(!actualResult.isPresent());
     }
 
     @Test
